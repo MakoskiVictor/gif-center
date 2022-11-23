@@ -14,6 +14,7 @@ module.exports = {
   },
   /* plugins: ['react'], */
   plugins: ['@typescript-eslint'],
+  root: true,
   rules: {
     '@typescript-eslint/adjacent-overload-signatures': 'error',
     '@typescript-eslint/ban-types': 'error',
@@ -21,8 +22,5 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': 'warn',
     '@typescript-eslint/explicit-function-return-type': 'warn',
     '@typescript-eslint/no-explicit-any': 'warn',
-   /*  noUnusedLocals: true,
-    noUnusedParameters: true */
-
   }
 }
