@@ -1,0 +1,92 @@
+.homeContainer {
+    width: 100%;
+    min-width: 360px;
+    margin: 0px;
+    align-content: center;
+    align-self: center; 
+}
+
+.homeTitle{
+    margin: 10px 0px;
+    padding: 0.1px;
+}
+
+.gifContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    align-content: center;
+    border-radius: 6px;
+    min-width: 360px;
+}
+
+.gifImages {
+    height: auto;
+    width: auto;
+    min-width: 180px;
+    min-height: 180px;
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: fill;
+    align-content: center;
+}
+
+@media (min-width: 1024px) {
+    .homeContainer {
+        width: 100%;
+        margin: 0px;
+    }
+    .homeTitle{
+        margin: 25px 0px;
+        padding: 0.1px;
+    }
+    .gifContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    align-content: center;
+    width: auto;
+    height: auto;
+    max-width: 1250px;
+    margin: 0% 15%;
+    }
+    .gifImages{
+        height: 250px;
+        width: 250px;
+        min-width: 100px;
+        min-height: 100px;
+        object-fit: fill;
+    }
+}
+
+@media (min-width: 1440px) {
+    .homeContainer {
+        width: 100%;
+        margin: 0px;
+    }
+    .homeTitle{
+        margin: 25px 0px;
+        padding: 0.1px;
+        font-size: 50px;
+    }
+    .gifContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    align-content: center;
+    width: auto;
+    height: auto;
+    max-width: 1250px;
+    margin: 0% 15%;
+    }
+    .gifImages{
+        height: 250px;
+        width: 250px;
+        min-width: 100px;
+        min-height: 100px;
+        max-width: 250px;
+        max-height: 250px;
+        object-fit: fill;
+    }
+}
+
