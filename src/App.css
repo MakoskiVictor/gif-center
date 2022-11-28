@@ -8,4 +8,16 @@
   text-align: center;
 }
 
+.imageContainer {
+  height: auto;
+  width: 100%;
+  align-content: center;
+}
+
+.gifLogo {
+  width: 200px;
+  height: 200px;
+  margin: 0px;
+}
+
 

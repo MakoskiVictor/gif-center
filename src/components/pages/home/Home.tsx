@@ -23,7 +23,6 @@ export const Home = (): JSX.Element => {
 
     return(
         <div className={styles.homeContainer}>
-            <h1 className={styles.homeTitle}>Giff Place</h1>
             <div role='gifImage' className={styles.gifContainer}>
                 { gifs? gifs.map((g, index) => <img className={styles.gifImages}  key={index} role='gifImage' src={`${g.url}`} />) : <p>Loading...</p>}
             </div>
