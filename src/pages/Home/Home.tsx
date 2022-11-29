@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getGifs, mapFromGetGifs } from '../../services/getGifs'
 import styles from './home.module.css'
+import { Spinner } from '../../components/Spinner/Spinner'
 
 interface GifProps {
     id: string
@@ -24,7 +25,7 @@ export const Home = (): JSX.Element => {
     return(
         <div className={styles.homeContainer}>
             <div role='gifImage' className={styles.gifContainer}>
-                { gifs? gifs.map((g, index) => <img className={styles.gifImages}  key={index} role='gifImage' src={`${g.url}`} />) : <p>Loading...</p>}
+                { gifs.length > 0 ? gifs.map((g, index) => <img className={styles.gifImages}  key={index} role='gifImage' src={`${g.url}`} />) : <Spinner/>}
             </div>
         </div>
     )

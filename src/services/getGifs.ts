@@ -19,7 +19,6 @@ export type gifsFetchedProperties = {
 
 
 export const getGifs = async ( keyword : string): Promise<gifsFetchedProperties> => {
-    if(!keyword) keyword = 'random'
     return fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&offset=0&rating=g&lang=en`)
             .then(res => res.json())
 }

@@ -5,12 +5,15 @@
     display: flex;
     align-content: center;
     align-self: center; 
+    justify-content: center;
+    align-items: center;
 }
 
 .gifContainer {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    justify-items: center;
     align-items: center;
     border-radius: 6px;
     min-width: 320px;
@@ -67,10 +70,6 @@
     .gifImages{
         height: 200px;
         width: 200px;
-        /* min-width: 100px;
-        min-height: 100px;
-        max-width: 250px;
-        max-height: 250px; */
         object-fit: fill;
         margin: 2px;
     }

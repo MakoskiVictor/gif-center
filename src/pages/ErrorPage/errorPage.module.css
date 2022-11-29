@@ -1,0 +1,23 @@
+.container {
+   /*  background-color: lawngreen; */
+    color: inherit;
+    font-family: inherit;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0px;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        font-size: 21px;
+    }
+}
