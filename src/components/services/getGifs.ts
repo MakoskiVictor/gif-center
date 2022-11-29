@@ -1,3 +1,5 @@
+const API_KEY = 'kI2OwJlo3bGk1RqEKyGgVY5wMe5X7KDn'
+
 export type GifProps = Array<{
     id: string
     url: string
@@ -16,8 +18,9 @@ export type gifsFetchedProperties = {
 }
 
 
-export const getGifs = async (): Promise<gifsFetchedProperties> => {
-    return fetch('https://api.giphy.com/v1/gifs/trending?api_key=kI2OwJlo3bGk1RqEKyGgVY5wMe5X7KDn&limit=24&rating=g')
+export const getGifs = async ( keyword : string): Promise<gifsFetchedProperties> => {
+    if(!keyword) keyword = 'random'
+    return fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&offset=0&rating=g&lang=en`)
             .then(res => res.json())
 }
 

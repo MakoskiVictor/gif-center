@@ -16,7 +16,7 @@ export const Home = (): JSX.Element => {
 
     const [gifs, setGifs] = useState<GetGifs['gifs']>([])
     useEffect(() => {
-        getGifs()
+        getGifs('random')
         .then(gifs => mapFromGetGifs(gifs))
         .then(res => setGifs(res))
     }, [])

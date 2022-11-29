@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route } from 'wouter'
 import { Home } from './components/pages/home/Home'
-import gifPlace from '../public/gifPlace.gif'
+import gifPlace from '../src/assets/gifPlace.gif'
 
 function App(): JSX.Element {
 
