@@ -1,33 +1,62 @@
-import { useEffect, useState } from "react"
-import { getGifs, mapFromGetGifs } from '../../services/getGifs'
-import styles from './home.module.css'
-import { Spinner } from '../../components/Spinner/Spinner'
+import { useEffect, useState } from "react";
+import { getGifs, mapFromGetGifs } from "../../services/getGifs";
+import styles from "./home.module.css";
+import { Spinner } from "../../components/Spinner/Spinner";
+import { useLocation } from "wouter";
+import {GetGifs} from '../../../types'
 
-interface GifProps {
-    id: string
-    url: string
-    title: string
-}
-
-interface GetGifs {
-    gifs: Array<GifProps>
-}
 
 export const Home = (): JSX.Element => {
+  const [gifs, setGifs] = useState<GetGifs["gifs"]>([]);
+  const [keyword, setKeyword] = useState<string>("");
 
-    const [gifs, setGifs] = useState<GetGifs['gifs']>([])
-    useEffect(() => {
-        getGifs('random')
-        .then(gifs => mapFromGetGifs(gifs))
-        .then(res => setGifs(res))
-    }, [])
+  const [path, pushLocation] = useLocation()
 
-    return(
-        <div className={styles.homeContainer}>
-            <div role='gifImage' className={styles.gifContainer}>
-                { gifs.length > 0 ? gifs.map((g, index) => <img className={styles.gifImages}  key={index} role='gifImage' src={`${g.url}`} />) : <Spinner/>}
-            </div>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setKeyword(e.target.value);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+     pushLocation(`/search/${keyword}`) 
+  };
+
+  useEffect(() => {
+    if (gifs.length === 0) {
+      getGifs(null)
+        .then((gifs) => mapFromGetGifs(gifs))
+        .then((res) => setGifs(res));
+    }
+    return;
+  }, []);
+
+  return (
+    <>
+      <form className={styles.search} onSubmit={handleSubmit}>
+        <input
+          className={styles.searcher}
+          placeholder="Search gif..."
+          type="text"
+          value={keyword}
+          onChange={handleChange}
+        />
+      </form>
+      <div className={styles.homeContainer}>
+        <div role="gifImage" className={styles.gifContainer}>
+          {gifs.length > 0 ? (
+            gifs.map((g, index) => (
+              <img
+                className={styles.gifImages}
+                key={index}
+                role="gifImage"
+                src={`${g.url}`}
+              />
+            ))
+          ) : (
+            <Spinner />
+          )}
         </div>
-    )
-}
-
+      </div>
+    </>
+  );
+};
