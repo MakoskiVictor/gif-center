@@ -1,10 +1,10 @@
-module.exports = {
+/* module.exports = {
   env: {
     browser: true,
     es2021: true,
     node: true
   },
-  /* extends: ['plugin:react/recommended', 'standard-with-typescript'], */
+
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   overrides: [],
   parserOptions: {
@@ -12,7 +12,6 @@ module.exports = {
     sourceType: 'module',
     parser: '@typescript-eslint/parser',
   },
-  /* plugins: ['react'], */
   plugins: ['@typescript-eslint'],
   root: true,
   rules: {
@@ -33,4 +32,10 @@ module.exports = {
     "@typescript-eslint/no-unsafe-return": "error",
     "@typescript-eslint/restrict-plus-operands": "error",
   }
+} */
+module.exports = {
+  extends: ['standard-with-typescript'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  root: true
 }
