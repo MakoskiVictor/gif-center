@@ -3,16 +3,8 @@ import { getGifs, mapFromGetGifs } from "../../services/getGifs";
 import styles from "./home.module.css";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { useLocation } from "wouter";
+import {GetGifs} from '../../../types'
 
-interface GifProps {
-  id: string;
-  url: string;
-  title: string;
-}
-
-interface GetGifs {
-  gifs: Array<GifProps>;
-}
 
 export const Home = (): JSX.Element => {
   const [gifs, setGifs] = useState<GetGifs["gifs"]>([]);
@@ -26,13 +18,12 @@ export const Home = (): JSX.Element => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    pushLocation(`/search/${keyword}`)
+     pushLocation(`/search/${keyword}`) 
   };
-  console.log(keyword);
 
   useEffect(() => {
     if (gifs.length === 0) {
-      getGifs("random")
+      getGifs(null)
         .then((gifs) => mapFromGetGifs(gifs))
         .then((res) => setGifs(res));
     }

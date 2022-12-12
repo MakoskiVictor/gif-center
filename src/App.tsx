@@ -17,7 +17,7 @@ function App(): JSX.Element {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/gif" component={Detail} />
-        <Route path="/search/:params" component={SearchResults} />
+        <Route path="/search/:keyword" component={SearchResults} />
         <Route component={ErrorPage} />
       </Switch>
     </div>
