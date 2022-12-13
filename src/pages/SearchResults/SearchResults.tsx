@@ -6,7 +6,7 @@ import styles from '../Home/home.module.css'
 
 export const SearchResults = (props: KeywordProps) => {
     const {keyword} = props.params
-  const { gifs } = useGifts({ keyword });
+    const { gifs } = useGifts(keyword);
 
   return (
     <>

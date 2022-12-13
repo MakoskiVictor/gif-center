@@ -31,7 +31,6 @@ export const mapFromGetGifs = (apiResponse: gifsFetchedProperties): GifProps => 
 }
 export const getGifs = async ( keyword : string | null): Promise<gifsFetchedProperties> => {
     if(!keyword) keyword = 'random'
-    console.log(keyword, API_KEY)
     return fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=25&offset=0&rating=g&lang=en`)
             .then(res => res.json())
 }

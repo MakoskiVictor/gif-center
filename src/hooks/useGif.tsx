@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { getGifs, mapFromGetGifs } from "../services/getGifs";
 import { GetGifs } from "../../types";
-interface KeyProps {
+/* interface KeyProps {
     keyword: string
-}
+} */
 
-export function useGifts({keyword}: KeyProps) {
+export function useGifts(keyword: string) {
   const [gifs, setGifs] = useState<GetGifs["gifs"]>([]);
 
   useEffect(() => {
