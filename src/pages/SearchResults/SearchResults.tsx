@@ -1,21 +1,21 @@
 import { Spinner } from "../../components/Spinner/Spinner";
 import { useGifts } from "../../hooks/useGif";
 import { KeywordProps } from '../../../types'
+import styles from '../Home/home.module.css'
 
 
 export const SearchResults = (props: KeywordProps) => {
     const {keyword} = props.params
-    console.log("props", keyword, props)
   const { gifs } = useGifts({ keyword });
 
   return (
     <>
-      <div /* className={styles.homeContainer} */>
-        <div role="gifImage" /* className={styles.gifContainer} */>
+      <div className={styles.homeContainer}>
+        <div role="gifImage" className={styles.gifContainer}>
           {gifs.length > 0 ? (
             gifs.map((g, index) => (
               <img
-                /* className={styles.gifImages} */
+                className={styles.gifImages}
                 key={index}
                 role="gifImage"
                 src={`${g.url}`}
