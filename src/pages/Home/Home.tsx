@@ -1,16 +1,13 @@
-import { useEffect, useState } from "react";
-import { getGifs, mapFromGetGifs } from "../../services/getGifs";
+import { useState } from "react";
 import styles from "./home.module.css";
 import { Spinner } from "../../components/Spinner/Spinner";
 import { useLocation } from "wouter";
-import {GetGifs} from '../../../types'
-
+import { useGifts } from "../../hooks/useGif";
 
 export const Home = (): JSX.Element => {
-  const [gifs, setGifs] = useState<GetGifs["gifs"]>([]);
-  const [keyword, setKeyword] = useState<string>("");
 
-  const [path, pushLocation] = useLocation()
+  const [keyword, setKeyword] = useState<string>("");
+  const [path, pushLocation] = useLocation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -18,17 +15,10 @@ export const Home = (): JSX.Element => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-     pushLocation(`/search/${keyword}`) 
+    pushLocation(`/search/${keyword}`);
   };
 
-  useEffect(() => {
-    if (gifs.length === 0) {
-      getGifs(null)
-        .then((gifs) => mapFromGetGifs(gifs))
-        .then((res) => setGifs(res));
-    }
-    return;
-  }, []);
+  const { gifs } = useGifts("gif")
 
   return (
     <>
