@@ -15,6 +15,7 @@ export const SearchResults = (props: KeywordProps) => {
           {gifs.length > 0 ? (
             gifs.map((g, index) => (
               <img
+              loading="lazy"
                 className={styles.gifImages}
                 key={index}
                 role="gifImage"
