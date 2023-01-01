@@ -14,12 +14,12 @@ export const SearchResults = (props: KeywordProps) => {
       <div className={styles.homeContainer}>
         <div role='gifImage' className={styles.gifContainer}>
           {gifs.length > 0 ? (
-            gifs.map((g, index) => (
-              <Link to={`${FRONT_URL}gif/${g.title}`}>
+            gifs.map((g) => (
+              <Link to={`${FRONT_URL}gif/${g.id}`}>
                 <img
                   loading='lazy'
                   className={styles.gifImages}
-                  key={index}
+                  key={g.id}
                   role='gifImage'
                   src={`${g.url}`}
                 />

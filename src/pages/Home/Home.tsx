@@ -34,12 +34,12 @@ export const Home = (): JSX.Element => {
       <div className={styles.homeContainer}>
         <div role='gifImage' className={styles.gifContainer}>
           {gifs.length > 0 ? (
-            gifs.map((g, index) => (
-              <Link to={`gif/${g.title}`}>
+            gifs.map((g) => (
+              <Link to={`gif/${g.id}`}>
                 <img
                   loading='lazy'
                   className={styles.gifImages}
-                  key={index}
+                  key={g.id}
                   role='gifImage'
                   src={`${g.url}`}
                 />

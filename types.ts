@@ -13,3 +13,9 @@ export interface KeywordProps {
         keyword: string
     }
 }
+
+export type ParamsDetail = {
+  params: {
+    id: String;
+  };
+};
