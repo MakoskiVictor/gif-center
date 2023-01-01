@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getGifs, mapFromGetGifs } from "../services/getGifs";
 import { GetGifs } from "../../types";
-/* interface KeyProps {
-    keyword: string
-} */
+import GifsContext from "../context/GifsContext"
 
 export function useGifts(keyword: string) {
-  const [gifs, setGifs] = useState<GetGifs["gifs"]>([]);
+  /* const [gifs, setGifs] = useState<GetGifs["gifs"]>([]); */
+  const {gifs, setGifs} = useContext(GifsContext)
 
   useEffect(() => {
     getGifs(keyword)
