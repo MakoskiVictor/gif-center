@@ -4,6 +4,8 @@ import { Spinner } from "../../components/Spinner/Spinner";
 import { useLocation } from "wouter";
 import { useGifts } from "../../hooks/useGif";
 import { Link } from "wouter";
+import { GifProps } from "../../../types";
+
 
 export const Home = (): JSX.Element => {
   const [keyword, setKeyword] = useState<string>("");
@@ -34,12 +36,11 @@ export const Home = (): JSX.Element => {
       <div className={styles.homeContainer}>
         <div role='gifImage' className={styles.gifContainer}>
           {gifs.length > 0 ? (
-            gifs.map((g) => (
-              <Link to={`gif/${g.id}`}>
+            gifs.map((g: GifProps) => (
+              <Link to={`gif/${g.id}`} key={g.id}>
                 <img
                   loading='lazy'
                   className={styles.gifImages}
-                  key={g.id}
                   role='gifImage'
                   src={`${g.url}`}
                 />
