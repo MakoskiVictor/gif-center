@@ -1,3 +1,4 @@
+//INTERFACES
 export interface GifProps {
     id: string;
     url: string;
@@ -14,8 +15,13 @@ export interface KeywordProps {
     }
 }
 
+//TYPES
 export type ParamsDetail = {
   params: {
     id: String;
   };
 };
+
+export type ContextProps = {
+  children?: React.ReactNode
+}
