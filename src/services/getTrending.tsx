@@ -20,7 +20,7 @@ export type gifsFetchedProperties = {
 
 
 
-export const mapFromGetGifs = (apiResponse: gifsFetchedProperties): GifProps => {
+export const mapFromGetTrendingGifs = (apiResponse: gifsFetchedProperties): GifProps => {
     const mappedGifs = apiResponse
     return mappedGifs.data.map(el => {
         return {
@@ -30,8 +30,8 @@ export const mapFromGetGifs = (apiResponse: gifsFetchedProperties): GifProps => 
         }
     })
 }
-export const getGifs = async ( keyword : string | null): Promise<gifsFetchedProperties> => {
+export const getTrendingGifs = async ( keyword : string | null): Promise<gifsFetchedProperties> => {
     if(!keyword) keyword = 'random'
-    return fetch(`${GIPHY_BASE_URL}trending?api_key=${API_KEY}&q=${keyword}&limit=25&offset=0&rating=g&lang=en`)
+    return fetch(`${GIPHY_BASE_URL}search?api_key=${API_KEY}&limit=25`)
             .then(res => res.json())
 }
