@@ -1,4 +1,4 @@
-const API_KEY = 'kI2OwJlo3bGk1RqEKyGgVY5wMe5X7KDn'
+import { API_KEY } from "./settings"
 
 export type GifProps = Array<{
     id: string
